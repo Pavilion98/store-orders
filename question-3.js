@@ -1,34 +1,23 @@
 
 const findHighestOrderValue = (orders) => {
     // do your magic here..
-    var max = 0;
-    var sum = 0;
-    var arrSum = [];
-    var index = -1;
+    let maxIndex = 0;
+    let maxSum = 0;
 
-    orders.forEach( (order) => {
-        order.forEach( (item) => {
-            sum += item;
-        });
-        arrSum.push(sum);
-    });
+    for (let i = 0; i < orders.length; i++) {
+        let sum = 0;
 
-    arrSum.forEach( (item) => {
-        if(item > max) {
-            max = item;
-            index++;
+        for (let j = 0; j < orders[i].length; j++) {
+            sum += orders[i][j];
         }
-    });
-    return index;
+        if (sum > maxSum){
+            maxSum = sum;
+            maxIndex = i;
+        }
+    }
+    return maxIndex;
 }
 
-
-// const orderItemsTotal = (items) => {
-//     var sum = items.reduce( (a,b) => {
-//         return a + b;
-//     }, 0);
-//     return sum;
-// }
 
 
 
